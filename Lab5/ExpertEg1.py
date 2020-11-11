@@ -1,6 +1,6 @@
 from pyswip import Prolog  # 导入模块
 prolog = Prolog()
-prolog.consult('bird.pl')  # 导入 Prolog 的代码(规则库)
+prolog.consult('birdPy.pl')  # 导入 Prolog 的代码(规则库)
 prolog.assertz("color(blue)") # 添加事实
 prolog.assertz('season(all_year)')
 prolog.assertz('size(small)')

@@ -1,25 +1,25 @@
 from pyswip import Prolog,registerForeign
 
-dic={}
+factsDic={}
 def verify(Question):
-    if Question in dic:
-        if dic[Question]=='y':
+    if Question in factsDic:
+        if factsDic[Question]=='y':
             return 1
-        if dic[Question]=='n':
+        if factsDic[Question]=='n':
             return 0
     else:
-        print('Does the animal has the attribute :',Question,'?')
+        print('Does the animal has the attribute :',Question,'(y/n)?')
         Response = input()
         if Response == 'y':
-            dic[Question]='y'
+            factsDic[Question]='y'
             return 1
         else:
-            dic[Question]='n'
+            factsDic[Question]='n'
             return 0
 verify.arity=1        
 
 registerForeign(verify)
 prolog = Prolog()
-prolog.consult('animal.pl')
+prolog.consult('animalPy.pl')
 for soln in prolog.query("hypothesize(X)"):
     print("This animal is:",soln["X"])

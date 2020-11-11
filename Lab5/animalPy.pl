@@ -3,10 +3,7 @@
    
     start with ?- go.	*/
     
-go :- hypothesize(Animal),
-    write('I guess that the animal is: '),
-    write(Animal),
-    nl, undo.
+
 
 /* hypotheses to be tested */
 hypothesize(cheetah)	:- cheetah, !.
@@ -61,34 +58,4 @@ ungulate :- mammal,
             verify(has_hooves), !.
 ungulate :- mammal,
             verify(chews_cud).
-
-/* how to ask questions */
-ask(Question) :-
-    write('Does the animal have the following attribute: '),
-    write(Question),
-    write('? '),
-    read(Response),
-    nl,
-    ( (Response == yes ; Response == y)
-      ->
-      assert(yes(Question)) ;
-      assert(no(Question)), fail).
-
-:- dynamic yes/1,no/1.
-
-/* How to verify something */
-verify(S) :-
-    (yes(S)
-     ->
-     true ;
-     (no(S)
-      ->
-      fail ;
-      ask(S))).
-
-/* undo all yes/no assertions */
-undo :- retract(yes(_)),fail.
-undo :- retract(no(_)),fail.
-undo.
-
 
