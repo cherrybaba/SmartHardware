@@ -1,0 +1,90 @@
+Epoch [1/10], Step [100/898], loss: 1.2560
+Epoch [1/10], Step [200/898], loss: 0.9227
+Epoch [1/10], Step [300/898], loss: 0.5315
+Epoch [1/10], Step [400/898], loss: 3.0459
+Epoch [1/10], Step [500/898], loss: 0.0122
+Epoch [1/10], Step [600/898], loss: 1.0181
+Epoch [1/10], Step [700/898], loss: 0.2976
+Epoch [1/10], Step [800/898], loss: 0.0073
+Accuracy is: 85.09454949944383%
+Epoch [2/10], Step [100/898], loss: 0.8623
+Epoch [2/10], Step [200/898], loss: 0.0106
+Epoch [2/10], Step [300/898], loss: 1.2913
+Epoch [2/10], Step [400/898], loss: 0.0968
+Epoch [2/10], Step [500/898], loss: 0.0009
+Epoch [2/10], Step [600/898], loss: 0.0084
+Epoch [2/10], Step [700/898], loss: 0.0475
+Epoch [2/10], Step [800/898], loss: 0.0002
+Accuracy is: 88.43159065628475%
+Epoch [3/10], Step [100/898], loss: 0.3676
+Epoch [3/10], Step [200/898], loss: 0.0011
+Epoch [3/10], Step [300/898], loss: 0.0155
+Epoch [3/10], Step [400/898], loss: 0.1127
+Epoch [3/10], Step [500/898], loss: 0.0000
+Epoch [3/10], Step [600/898], loss: 0.0009
+Epoch [3/10], Step [700/898], loss: 0.0353
+Epoch [3/10], Step [800/898], loss: 0.0000
+Accuracy is: 88.87652947719688%
+Epoch [4/10], Step [100/898], loss: 2.1917
+Epoch [4/10], Step [200/898], loss: 0.0003
+Epoch [4/10], Step [300/898], loss: 0.0144
+Epoch [4/10], Step [400/898], loss: 0.0663
+Epoch [4/10], Step [500/898], loss: 0.0000
+Epoch [4/10], Step [600/898], loss: 0.0006
+Epoch [4/10], Step [700/898], loss: 0.0001
+Epoch [4/10], Step [800/898], loss: 0.0000
+Accuracy is: 86.98553948832036%
+Epoch [5/10], Step [100/898], loss: 0.0240
+Epoch [5/10], Step [200/898], loss: 0.0002
+Epoch [5/10], Step [300/898], loss: 0.0199
+Epoch [5/10], Step [400/898], loss: 2.6922
+Epoch [5/10], Step [500/898], loss: 0.0000
+Epoch [5/10], Step [600/898], loss: 0.0000
+Epoch [5/10], Step [700/898], loss: 0.4306
+Epoch [5/10], Step [800/898], loss: 0.0000
+Accuracy is: 90.21134593993325%
+Epoch [6/10], Step [100/898], loss: 0.1167
+Epoch [6/10], Step [200/898], loss: 0.0028
+Epoch [6/10], Step [300/898], loss: 0.0000
+Epoch [6/10], Step [400/898], loss: 0.1585
+Epoch [6/10], Step [500/898], loss: 0.0000
+Epoch [6/10], Step [600/898], loss: 0.6872
+Epoch [6/10], Step [700/898], loss: 0.0021
+Epoch [6/10], Step [800/898], loss: 0.0000
+Accuracy is: 88.65406006674083%
+Epoch [7/10], Step [100/898], loss: 0.0463
+Epoch [7/10], Step [200/898], loss: 0.0022
+Epoch [7/10], Step [300/898], loss: 0.0022
+Epoch [7/10], Step [400/898], loss: 0.0310
+Epoch [7/10], Step [500/898], loss: 0.0000
+Epoch [7/10], Step [600/898], loss: 0.0002
+Epoch [7/10], Step [700/898], loss: 0.0022
+Epoch [7/10], Step [800/898], loss: 0.0000
+Accuracy is: 85.65072302558399%
+Epoch [8/10], Step [100/898], loss: 0.0020
+Epoch [8/10], Step [200/898], loss: 0.0003
+Epoch [8/10], Step [300/898], loss: 0.0000
+Epoch [8/10], Step [400/898], loss: 4.2978
+Epoch [8/10], Step [500/898], loss: 0.0000
+Epoch [8/10], Step [600/898], loss: 0.0000
+Epoch [8/10], Step [700/898], loss: 0.0001
+Epoch [8/10], Step [800/898], loss: 0.0000
+Accuracy is: 87.65294771968854%
+Epoch [9/10], Step [100/898], loss: 0.0000
+Epoch [9/10], Step [200/898], loss: 0.0001
+Epoch [9/10], Step [300/898], loss: 0.0000
+Epoch [9/10], Step [400/898], loss: 0.0003
+Epoch [9/10], Step [500/898], loss: 0.0000
+Epoch [9/10], Step [600/898], loss: 0.0000
+Epoch [9/10], Step [700/898], loss: 0.0003
+Epoch [9/10], Step [800/898], loss: 0.0000
+Accuracy is: 91.65739710789767%
+Epoch [10/10], Step [100/898], loss: 0.0000
+Epoch [10/10], Step [200/898], loss: 0.0096
+Epoch [10/10], Step [300/898], loss: 0.0000
+Epoch [10/10], Step [400/898], loss: 0.0004
+Epoch [10/10], Step [500/898], loss: 0.0000
+Epoch [10/10], Step [600/898], loss: 0.0005
+Epoch [10/10], Step [700/898], loss: 0.0000
+Epoch [10/10], Step [800/898], loss: 0.0000
+Accuracy is: 90.3225806451613%

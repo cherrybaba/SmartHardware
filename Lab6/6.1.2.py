@@ -7,17 +7,23 @@ A0 = 0x40
 bus = smbus.SMBus(1)
 value = 215
 flag = 1
+sleepTime = 0.01
 
-def setSleepTime(address,A0):
-    bus.write_byte(address,A0)
-    sleepTime = bus.read_byte(address)
-    sleepTime = sleepTime/16*0.01
-    return sleepTime
-mythread = Thread(target=callable,args=())
+def setSleepTime():
+    global sleepTime,address,A0
+    while True:
+        bus.write_byte(address,A0)
+        sleepTime = bus.read_byte(address)
+        sleepTime = sleepTime/16*0.001
+        #print(sleepTime)
+        sleep(sleepTime)
+  
+
+mythread = Thread(target=setSleepTime,args=())
+mythread.setDaemon(True)
 mythread.start()
 while True:
-    mythread.join()
-    mythread.setDaemon(True)
+    
     #亮度达到最低，标记flag，开始变亮
     if value == 0:
         flag = 1
@@ -30,4 +36,4 @@ while True:
         value -= 1
     bus.write_byte_data(address,A0,value)
     
-    time.sleep(setSleepTime(address,A0))
+    time.sleep(sleepTime)
