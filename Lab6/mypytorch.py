@@ -60,11 +60,12 @@ def train_model(model, train_loader,test_loader, device):
 
             # Backward and optimize 反向传播更新参数
             # 将上次迭代计算的梯度值清0
-            optimizer.zero_grad()
-            # 反向传播，计算梯度值
-            loss.backward()
-            # 更新权值参数
-            optimizer.step()
+            if i % batch_size == 0:
+                optimizer.zero_grad()
+                # 反向传播，计算梯度值
+                loss.backward()
+                # 更新权值参数
+                optimizer.step()
 
             # 打印训练信息
             if (i + 1) % 100 == 0:

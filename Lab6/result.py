@@ -26,9 +26,20 @@ num_epochs = 10
 batch_size = 100
 learning_rate = 0.001
 torch2.log
-no change??
+no change?? everytime change
 #########
 num_epochs = 10
 batch_size = 40
 learning_rate = 0.01
 torch3.log
+######
+num_epochs = 10
+batch_size = 100
+learning_rate = 0.001
+torch4.log
+change code
+############
+num_epochs = 10
+batch_size = 40
+learning_rate = 0.001
+torch5.log
