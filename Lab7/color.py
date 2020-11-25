@@ -13,7 +13,7 @@ while True:
         cv2.drawContours(output,contours,-1,255,3) #画出所有事物轮廓
         c=max(contours,key=cv2.contourArea) #选取最大的轮廓为手部轮廓
         x,y,w,h=cv2.boundingRect(c) #确定手部轮廓的起始坐标、长宽
-        cv2.circle(output,(x+w/2,y+h/2),2,(0,255,0),3) #在手部中心点画圆标记
+        cv2.circle(output,(x+w//2,y+h//2),2,(0,255,0),3) #在手部中心点画圆标记
     cv2.imshow('Original', frame)
     cv2.imshow('Output', output)
     if cv2.waitKey(1) == ord("q"):
