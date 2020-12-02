@@ -11,7 +11,7 @@ def record_audio(wave_out_path,record_second):
                     rate=RATE,
                     input=True,
                     frames_per_buffer=CHUNK)
-    wf = wave.open(filename, 'wb')
+    wf = wave.open(wave_out_path, 'wb')
     wf.setnchannels(CHANNELS)
     wf.setsampwidth(p.get_sample_size(FORMAT))
     wf.setframerate(RATE)
