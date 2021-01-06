@@ -1,3 +1,5 @@
+#python3 finalControl.py wakeup.pmdl sleep.pmdl clock.pmdl hello.pmdl news.pmdl
+#python3 finalControl.py wakeup.pmdl sleep.pmdl clock.pmdl news.pmdl
 import snowboydecoder
 import sys
 import signal
@@ -11,6 +13,7 @@ from pygame import mixer
 from aip import AipBodyAnalysis
 from aip import AipSpeech
 from threading import Thread
+
 
 # Gestures:Thumb_up,Thumb_down,Fist,Five
 # Code for listening to five hotwords at the same time
@@ -36,16 +39,18 @@ def get_file_content(filePath):
 
 def gestureDetect():
     global voiceState,clockFlag
+    print("start gestureDetect!")
+   
     lastRes=0
     while True:
         #if voiceState!="CLOCK" and voiceState!="NEWS":
             #continue
         """1.拍照 """
-        camera.start_preview()
+        
+        #camera.start_preview(fullscreen=False,window=(100,20,620,540))
         time.sleep(1)
-        #mixer.music.stop()
         camera.capture('./image.jpg')
-        camera.stop_preview()
+        #camera.stop_preview()
         image = get_file_content('./image.jpg')
 
         """ 2.调用手势识别 """
@@ -55,21 +60,22 @@ def gestureDetect():
             res = text['result'][0]['classname']
         except:
             print('Nothing detected!' )
+            lastres="None"
         else:
             if res==lastRes:
                 print('Nothing detected!' )
             else:
                 lastRes=res
-                print('Detect' + hand[res])
+                print('Detect ' + hand[res])
                 if voiceState=="CLOCK":
-                    if clockFlag== "appear" and hand[res]=="Previous News or clock disappear":
-                        #MMC.showAlert("Hide clock! Got it!",2000)
-                        #time.sleep(2)
+                    if clockFlag== "appear" and (res=="Thumb_up" or res =="One"):
+                        print("hide clock")
                         MMC.hideModule("clock")
                         clockFlag="disappear"
-                    elif clockFlag=="disappear" and hand[res]== "Next News or clock appear":
+                    elif clockFlag=="disappear" and res=="Thumb_down":
                         #MMC.showAlert("Show clock! Got it!",2000)
                         #time.sleep(2)
+                        print("show clock")
                         MMC.showModule("clock")
                         clockFlag="appear"
                 if voiceState == "NEWS":
@@ -90,6 +96,7 @@ def gestureDetect():
 # make sure you have the same numbers of callbacks and models
 def voiceDetect():
     global detector,logger
+    print("start voiceDetect!")
     logger.debug("start.")
     detector.start(detected_callback=callbacks,
                    interrupt_check=interruptCallback,
@@ -109,8 +116,9 @@ def interruptCallback():
 # callbacks
 def wakeup():
     global voiceState
-    voiceState="WAKEUP"
-    MMC.setBrightness(100)
+    if voiceState=="SLEEP":
+        voiceState="WAKEUP"
+        MMC.setBrightness(100)
     print(voiceState)
     
         
@@ -119,6 +127,8 @@ def sleep():
     if voiceState=="WAKEUP":
         voiceState="SLEEP"
         MMC.setBrightness(0)
+    elif voiceState=="SLEEP":
+        voiceState="SLEEP"
     else:
         voiceState="WAKEUP" #退出设置
     print(voiceState)
@@ -135,7 +145,7 @@ def clock():
 def hello():
     global voiceState
     voiceState="HELLO"
-    MMC.showAlert("Good afterNoon, BaoBeiEr~",2000)
+    MMC.showAlert("Good afterNoon, my darling!",2000)
     time.sleep(2)
     print(voiceState)
     
@@ -161,10 +171,12 @@ clockFlag="appear" # appear,disappear
 interrupted = False
 
 # confirm the num of models
+'''
 if len(sys.argv) != 6:    
     print("Error: need to specify 5 model names")
     print("Usage: python demo.py 1st.model 2nd.model ... 5th.model")
     sys.exit(-1)
+'''
 models = sys.argv[1:]
 
 MMC.setBrightness(0)
@@ -176,19 +188,20 @@ detector = snowboydecoder.HotwordDetector(models, sensitivity=sensitivity)
 callbacks = [lambda: wakeup(),
              lambda: sleep(),
              lambda: clock(),
-             lambda: hello(),
+             #lambda: hello(),
              lambda: news()]
 print('Listening... Press Ctrl+C to exit')
 
 try:
-    voiceThread = Thread(target=voiceDetect(), args=())
-    gestureThread =Thread(target=gestureDetect(), args=())
-
-    voiceThread.start()
+    voiceThread = Thread(target=voiceDetect, args=())
+    gestureThread =Thread(target=gestureDetect, args=())
     gestureThread.start()
-    voiceThread.join()
+    voiceThread.start()
     gestureThread.join()
+    voiceThread.join()
+    
 except KeyboardInterrupt:
-    detector.terminate()
+    print("except")
+    #detector.terminate()
 
         
